@@ -1,0 +1,21 @@
+﻿@page
+@model EditModel
+@{
+}
+<div><h2>Edit Book Item</h2></div>
+<div>
+    <form method="post">
+        <input asp-for="book.ID" type = "hidden"/>
+        <input asp-for="book.BooksAuthor" type="text" placeholder="Book Author" />
+        <span asp-validation-for="book.BooksAuthor"></span>
+
+        <input asp-for="book.BooksTitle" type="text" placeholder="Book Title" />
+        <span asp-validation-for="book.BooksTitle"></span>
+
+        <input asp-for="book.StarRating" type="text" placeholder="Book Rating" />
+        <span asp-validation-for="book.StarRating"></span>
+
+        <input type="submit" value="Edit Book" />
+        <a asp-page="Index">Back to Books List</a>
+    </form>
+</div>

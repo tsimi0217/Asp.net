@@ -1,0 +1,62 @@
+﻿@page
+@model IndexModel
+@{
+}
+<h2>My Books</h2>
+<div>
+    <a asp-page="Create">Add new Book</a>
+</div>
+@if (Model.afterAddMessage !=null)
+{
+<div>
+    @Model.afterAddMessage
+</div>
+}
+<div>
+    @if (Model.myBooks.Count() > 0)
+    {
+    <form method="post">
+<div>
+    <table>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(m => m.myBooks.FirstOrDefault().BooksAuthor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.myBooks.FirstOrDefault().BooksTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.myBooks.FirstOrDefault().StarRating)
+            </th>
+            <th>
+
+            </th>
+        </tr>
+        @foreach (var item in Model.myBooks)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(m => item.BooksAuthor)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.BooksTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.StarRating)
+            </td>
+            <td>
+                <a asp-page="Edit" asp-route-id="@item.ID">Edit</a>
+                <button asp-page-handler="Delete"asp-route-id="@item.ID">&times;</button>
+            </td>
+        </tr>
+
+        }
+    </table>
+</div>
+</form>
+    } else
+    {
+        <p>No Books currently</p>
+
+    }
+</div>

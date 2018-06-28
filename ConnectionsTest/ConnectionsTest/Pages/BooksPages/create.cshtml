@@ -1,0 +1,18 @@
+﻿@page
+@model createModel
+@{
+}
+<div><h2>Add Book Item</h2></div>
+<div><form method="post">
+    <input asp-for="Book.BooksAuthor" type="text" placeholder="Book Author" />
+    <span asp-validation-for="Book.BooksAuthor"></span>
+
+    <input asp-for="Book.BooksTitle" type="text" placeholder="Book Title" />
+    <span asp-validation-for="Book.BooksTitle"></span>
+
+    <input asp-for="Book.StarRating" type="text" placeholder="Book Rating" />
+    <span asp-validation-for="Book.StarRating"></span>
+
+    <input type="submit"value="Add Book"/>
+    <a asp-page="Index">Back to Books List</a>
+</form></div>
